@@ -278,16 +278,7 @@ function Tree(array) {
         const values = [];
         this.inOrder(node => values.push(node.value));
   
-        const buildBalanced = (arr, low = 0, hi = arr.length - 1) => {
-        if (low > hi) return null;
-        const mid = Math.floor((low + hi) / 2);
-        const node = new Node(arr[mid]);
-        node.left  = buildBalanced(arr, low, mid - 1);
-        node.right = buildBalanced(arr, mid + 1, hi);
-        return node;
-      };
-  
-      root = buildBalanced(values);
+        root = buildTree(values);
   
       },
   
